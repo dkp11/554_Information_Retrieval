@@ -3,10 +3,12 @@
 **************			   Homework 2				*********************
 **************		PageRank algorithm Implementation		*********************
 *********************************************************************************************
-
+Github link:
+https://github.com/dkp11/554_Information_Retrieval/
+********************************************************************************************
 Programming Language: 	R
 Script File Name: 	PageRank.R
-No of Implementation:	4
+No of Implementation:	2
 
 *********************************************************************************************
 * Implementation
@@ -43,31 +45,20 @@ going on to individual methods:
 *********************************************************************************************
 Method 1:
 =========
-Uses the Eigen vector function in R. A much simplified implementation. Bigger memory is a 
-constraint
+Uses the power method or the Eigen vector function in R. A much simplified implementation. 
+Bigger memory and much time is a constraint in case of larger matrices.
 
-1. Run from lines 29 - 51, line by line.
-2. Will take some time but will give the result vector.
+1. Choose which method to use - Eigen or power. Default is eigen.
+2. Run from lines 29 - 69, line by line.
+2. Will take some time (for larger graphs alone) but will give the result vector.
 *********************************************************************************************
 
 *********************************************************************************************
 Method 2:
 =========
-Uses the row sums and Eigen vector function in R. A much simplified implementation. Bigger memory is a 
-constraint
+This method uses inbuilt library and produces results instanteously. This is used for verification purposes alone.
 
-1. Run from lines 60 - 82, line by line.
-2. Will take some time but will give the result vector
-*********************************************************************************************
-
-*********************************************************************************************
-Method 3:
-=========
-Uses the exact same way mentioned in class and tutorials. It takes adjacency matrix and based 
-on dot product of unit matrix and dampening factor, does calculate page rank till convergence.
-
-1. Run from lines 92 - 126, line by line.
-2. Will take some time but will give the result vector.
+1. Run line 79.
 *********************************************************************************************
 
 *********************************************************************************************
@@ -89,7 +80,33 @@ and a different top 100 values and nodes were returned.
 *********************************************************************************************
 Results:
 ========
-The results obtained in all three methods were same and is given below:
+Input 1:- Six node graph
+========================
+
+The ordering was same in all methods. But the numerical values are different.
+
+Nodes in prder:
+---------------
+	5 	    2 		3 	  4 	     1 		6
+
+Values in the above order of nodes:
+-----------------------------------
+Method 1 - Eigen:
+-----------------
+ 0.51474883   0.50288776   0.47359977   0.47359977   0.17342812   0.05887897
+
+Method 1 - Power:
+-----------------
+ 0.0012636881 0.0012345696 0.0011626687 0.0011626687 0.0004257592 0.0001445456
+
+Method 2:
+---------
+ 0.03694043   0.23496947   0.21050244   0.21050244   0.22279983   0.08428539 
+ 
+Input 2:- 81433 node graph
+==========================
+
+The results obtained in both the methods were same for the order of nodes but different in values:
 
 Top 100 nodes based on the PageRank value (Reads from left to right, top to bottom: 1 to 100)
 ---------------------------------------------------------------------------------------------
